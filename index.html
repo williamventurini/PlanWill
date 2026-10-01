@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PlanWill</title>
+<style>
+:root{
+  --header-blue:#1a3a63;
+  --header-blue-dark:#0f2540;
+  --accent:#2f6fb0;
+  --border:#c7d3e0;
+  --text:#1c2733;
+  --text-light:#5c6b7a;
+  --bg:#eef2f7;
+  --completed:#2e9e5b;
+  --inprogress:#e8b923;
+  --blocked:#d94141;
+  --track:#e7edf5;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:14px;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  background:linear-gradient(90deg,var(--header-blue),var(--header-blue-dark));
+  color:#fff;
+  padding:70px 20px;
+  text-align:center;
+  flex-shrink:0;
+}
+.hero h1{
+  margin:0;
+  font-size:46px;
+  font-weight:600;
+  letter-spacing:.5px;
+  line-height:1.1;
+}
+.hero .subtitle{
+  margin:16px auto 0;
+  max-width:640px;
+  font-size:16px;
+  line-height:1.5;
+  color:rgba(255,255,255,.9);
+}
+.lang-wrap{position:absolute;top:18px;right:20px;}
+.lang-wrap select{padding:7px 10px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;border-radius:5px;font:inherit;cursor:pointer;}
+.lang-wrap select option{color:var(--text);background:#fff;}
+
+/* CARDS */
+.cards{
+  flex:1;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+  width:100%;
+  max-width:920px;
+  margin:0 auto;
+  padding:44px 20px 60px;
+}
+.card{
+  display:flex;
+  flex-direction:column;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:26px;
+  text-decoration:none;
+  color:inherit;
+  box-shadow:0 6px 20px rgba(0,0,0,.12);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.card:hover,
+.card:focus-visible{
+  transform:translateY(-4px);
+  box-shadow:0 14px 32px rgba(0,0,0,.18);
+  border-color:var(--accent);
+}
+.card:focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:2px;
+}
+.card .icon{
+  height:120px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:18px;
+}
+.card .icon svg{
+  width:100%;
+  height:100%;
+  display:block;
+}
+.card h2{
+  margin:0 0 8px;
+  font-size:20px;
+  font-weight:600;
+  color:var(--header-blue);
+}
+.card p{
+  margin:0;
+  flex:1;
+  font-size:13.5px;
+  line-height:1.55;
+  color:var(--text-light);
+}
+.openBtn{
+  align-self:flex-start;
+  margin-top:20px;
+  background:var(--accent);
+  color:#fff;
+  padding:9px 16px;
+  border-radius:5px;
+  font-size:13px;
+  font-weight:600;
+  white-space:nowrap;
+  transition:background .18s ease;
+}
+.card:hover .openBtn,
+.card:focus-visible .openBtn{
+  background:var(--header-blue);
+}
+
+/* FOOTER */
+footer{
+  flex-shrink:0;
+  text-align:center;
+  color:var(--text-light);
+  font-size:12px;
+  padding:22px 20px;
+  background:#fff;
+  border-top:1px solid var(--border);
+}
+
+/* RESPONSIVE */
+@media (max-width:700px){
+  .hero{padding:48px 16px;}
+  .hero h1{font-size:32px;}
+  .hero .subtitle{font-size:14px;}
+  .cards{grid-template-columns:1fr;gap:18px;padding:28px 16px 44px;}
+  .card{padding:22px;}
+  .card .icon{height:104px;}
+  .lang-wrap{top:12px;right:12px;}
+}
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="lang-wrap"><select id="langSel" aria-label="Idioma / Language"><option value="pt-BR">Português (BR)</option><option value="en">English</option><option value="es">Español</option></select></div>
+    <h1>PlanWill</h1>
+    <p class="subtitle">Suíte de ferramentas de planejamento — escolha uma ferramenta para começar</p>
+  </header>
+
+  <main class="cards">
+    <a class="card" href="roadmap_creator.html">
+      <div class="icon">
+        <svg viewBox="0 0 240 140" aria-hidden="true" focusable="false">
+          <rect x="1" y="1" width="238" height="138" rx="10" fill="#f4f7fb" stroke="#c7d3e0" stroke-width="1"/>
+          <rect x="16" y="28" width="208" height="20" rx="6" fill="#e7edf5"/>
+          <rect x="40" y="28" width="120" height="20" rx="6" fill="#2e9e5b"/>
+          <rect x="16" y="62" width="208" height="20" rx="6" fill="#e7edf5"/>
+          <rect x="24" y="62" width="150" height="20" rx="6" fill="#e8b923"/>
+          <rect x="16" y="96" width="208" height="20" rx="6" fill="#e7edf5"/>
+          <rect x="60" y="96" width="130" height="20" rx="6" fill="#d94141"/>
+        </svg>
+      </div>
+      <h2>RoadMap Creator</h2>
+      <p>Crie roadmaps de implementação com linha do tempo, marcos, status e exportação para PDF.</p>
+      <span class="openBtn">Abrir ferramenta →</span>
+    </a>
+
+    <a class="card" href="workflow_creator.html">
+      <div class="icon">
+        <svg viewBox="0 0 280 140" aria-hidden="true" focusable="false">
+          <rect x="8" y="54" width="66" height="32" rx="7" fill="#1a3a63"/>
+          <line x1="74" y1="70" x2="98" y2="70" stroke="#2f6fb0" stroke-width="2" stroke-linecap="round"/>
+          <polygon points="106,70 96,64 96,76" fill="#2f6fb0"/>
+          <polygon points="140,36 174,70 140,104 106,70" fill="#2f6fb0"/>
+          <line x1="174" y1="70" x2="198" y2="70" stroke="#2f6fb0" stroke-width="2" stroke-linecap="round"/>
+          <polygon points="206,70 196,64 196,76" fill="#2f6fb0"/>
+          <rect x="206" y="54" width="66" height="32" rx="7" fill="#1a3a63"/>
+        </svg>
+      </div>
+      <h2>WorkFlow Creator</h2>
+      <p>Desenhe fluxos de trabalho com formas padrão, conectores, artefatos e exportação em SVG/PNG.</p>
+      <span class="openBtn">Abrir ferramenta →</span>
+    </a>
+  </main>
+
+  <footer>PlanWill · Ferramentas de planejamento</footer>
+<script>
+(function(){
+"use strict";
+const I18N={
+ 'pt-BR':{subtitle:'Suíte de ferramentas de planejamento — escolha uma ferramenta para começar',roadmap_desc:'Crie roadmaps de implementação com linha do tempo, marcos, status e exportação para PDF.',workflow_desc:'Desenhe fluxos de trabalho com formas padrão, conectores, artefatos e exportação em SVG/PNG.',open:'Abrir ferramenta →',footer:'PlanWill · Ferramentas de planejamento'},
+ 'en':{subtitle:'Planning tools suite — pick a tool to get started',roadmap_desc:'Create implementation roadmaps with a timeline, milestones, statuses and PDF export.',workflow_desc:'Draw workflow diagrams with standard shapes, connectors, artifacts and SVG/PNG export.',open:'Open tool →',footer:'PlanWill · Planning tools'},
+ 'es':{subtitle:'Suite de herramientas de planificación — elige una herramienta para comenzar',roadmap_desc:'Cree roadmaps de implementación con línea de tiempo, hitos, estados y exportación para PDF.',workflow_desc:'Dibuje flujos de trabajo con formas estándar, conectores, artefactos y exportación en SVG/PNG.',open:'Abrir herramienta →',footer:'PlanWill · Herramientas de planificación'}
+};
+function detectLang(){try{const s=localStorage.getItem('planwillLang');if(s&&I18N[s])return s}catch(e){}const n=(navigator.language||'en').toLowerCase();return n.startsWith('pt')?'pt-BR':(n.startsWith('es')?'es':'en')}
+let LANG=detectLang();
+const cards=document.querySelectorAll('.card');
+const langSel=document.getElementById('langSel');
+function apply(){const d=I18N[LANG];document.documentElement.lang=LANG;document.querySelector('.subtitle').textContent=d.subtitle;cards[0].querySelector('p').textContent=d.roadmap_desc;cards[1].querySelector('p').textContent=d.workflow_desc;document.querySelectorAll('.openBtn').forEach(b=>b.textContent=d.open);document.querySelector('footer').textContent=d.footer;langSel.value=LANG}
+langSel.addEventListener('change',()=>{LANG=langSel.value;try{localStorage.setItem('planwillLang',LANG)}catch(e){}apply()});
+apply();
+})();
+</script>
+</body>
+</html>
